@@ -42,4 +42,8 @@ class Negocio
         }
         return $vec;
     }
+
+    function addAlu(){
+        
+    }
 }
