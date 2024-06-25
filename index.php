@@ -27,7 +27,6 @@
         include_once './modelo/Negocio.php';
         $obj = new Negocio();
         $cli = $obj->login($_POST["username"], $_POST["password"]);
-        $stats = $obj->stats();
         if (empty($cli)) {
             echo "<script>
             Swal.fire({
@@ -40,7 +39,6 @@
             sleep(0.5);
             session_start();
             $_SESSION["usuario"] = $cli;
-            $_SESSION["stats"] = $stats;
             header("location: dashboard.php");
             echo "<h2>Sesion iniciada</h2>";
         }

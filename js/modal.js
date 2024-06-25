@@ -5,23 +5,23 @@ document.addEventListener("DOMContentLoaded", function () {
     // Obtener el botón que abre el modal
     var btn = document.getElementById("button");
 
-    // Obtener el elemento <span> que cierra el modal
-    var span = document.getElementsByClassName("close")[0];
+    // Obtener el botón que cierra el modal
+    var btn_cerrar = document.getElementById("boton-guardar");
 
     // Cuando el usuario hace clic en el botón, se abre el modal
     btn.onclick = function () {
-        modal.style.display = "grid";
+        modal.style.display = "flex";
     }
 
-    // Cuando el usuario hace clic en <span> (x), se cierra el modal
-    span.onclick = function () {
+    // Cuando el usuario hace clic en el botón guardar, se cierra el modal
+    btn_cerrar.onclick = function () {
         modal.style.display = "none";
     }
 
-    // Cuando el usuario hace clic en cualquier lugar fuera del modal, se cierra
     window.onclick = function (event) {
         if (event.target == modal) {
             modal.style.display = "none";
         }
     }
+
 });
