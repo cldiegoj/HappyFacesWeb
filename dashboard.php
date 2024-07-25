@@ -18,6 +18,7 @@
 </head>
 
 <body>
+
     <?php
     include_once './modelo/Negocio.php';
     session_start();
@@ -29,9 +30,13 @@
     ?>
     <div class="sidebar">
         <h2 class="text-white text-center">Happy Faces</h2>
+        <img class="logo" src="imagenes/logo.png" alt="logo de la empresa" width="250px" height="100px" style="padding-left: 50px; padding-right: 50px;">
+        
         <a href="#">Alumnos</a>
         <a href="#">Profesores</a>
         <a href="#">Aulas</a>
+        <div class="separador">
+        </div>
         <div class="summary">
             <div>Alumnos Matriculados: <?= $stats[0] ?></div>
             <div>Profesores registrados: <?= $stats[1] ?></div>
@@ -72,7 +77,10 @@
                             <th>DNI</th>
                             <th>Nombres</th>
                             <th>Apellidos</th>
-                            <th>Salon</th>
+                            <th>Salon</th>    
+                            <th>Calificacion Matematica</th>
+                            <th>Calificacion Lenguaje</th> 
+                            <th>Edad</th>                     
                             <th>Editar</th>
                             <th>Eliminar</th>
                         </tr>
@@ -88,6 +96,9 @@
                                 <td><?= $d[2] ?></td>
                                 <td><?= $d[3] ?></td>
                                 <td><?= $d[4] ?></td>
+                                <td><?= $d[5] ?></td>
+                                <td><?= $d[6] ?></td>
+                                <td><?= $d[7] ?> años</td>
                                 <td>
                                     <a href="editdatos.php?id_alumno=<?= $d[0] ?>" class="edit-btn">
                                         <img src="imagenes/edit.png" width="50" height="50" id="editmodal" data-id="" onclick="procesoPHP(this)">
@@ -113,7 +124,7 @@
 
             <!-- Body para los profesores   -->
 
-            <div class="card-body profesores">
+            <div class="card-body profesores" style="display: none;">
                 <h5 class="card-title">Mantenimiento de Profesores</h5>
                 <button class="btn btn-primary mb-2" name="button" id="button">Nuevo Registro</button>
                 <input type="text" class="form-control mb-3" placeholder="Buscar">
@@ -192,6 +203,14 @@
                 </select>
                 <br>
                 <br>
+                <label for="cali-mate"class="labelform">Calificación Matematica</label>
+                <input type="number" id="matematica" name="matematica" required>
+                <br>
+                <label for="cali-leng"class="labelform">Calificación Lenguaje</label>
+                <input type="number" id="lenguaje" name="lenguaje" required>
+                <br>
+                <label for="edad" class="labelform">Edad</label>
+                <input type="number" id="edad"name="edad"required>
                 <center>
                     <div class="boton-cerrar">
                         <button class="btn btn-primary" id="boton-guardar" name="boton-guardar">Guardar</button>

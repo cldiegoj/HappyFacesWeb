@@ -32,7 +32,7 @@ class Negocio
     }
 
     function lisAlu(){
-        $sql = "select id_alumno, dni, nombres, apellidos, id_aula from alumno";
+        $sql = "select id_alumno, dni, nombres, apellidos, id_aula, calificacion_lenguaje, calificacion_matematicas, edad from alumno";
         $obj = new Conexion();
         $res = mysqli_query($obj->conecta(), $sql) or
             die(mysqli_error($obj->conecta()));
@@ -43,9 +43,9 @@ class Negocio
         return $vec;
     }
 
-    function addAlu($dni, $nombre, $apellido, $aula)
+    function addAlu($dni, $nombre, $apellido, $aula, $mate, $lenguaje, $edad)
     {
-        $sql = "CALL InsertAlumno('$dni','$nombre','$apellido','$aula')";
+        $sql = "CALL InsertAlumno('$dni','$nombre','$apellido','$aula', '$mate', '$lenguaje' , '$edad')";
         $obj = new Conexion();
         $conn = $obj->conecta();
         $res = mysqli_query($conn, $sql);
@@ -73,8 +73,8 @@ class Negocio
         return $res;
     }
 
-    function editarAlu($id_alumno, $dni, $nombre, $apellido, $aula){
-        $sql = "update alumno SET dni = '$dni', nombres = '$nombre', apellidos = '$apellido', id_aula = '$aula' where id_alumno = '$id_alumno' ";
+    function editarAlu($id_alumno, $dni, $nombre, $apellido, $aula, $lenguaje, $mate, $edad){
+        $sql = "update alumno SET dni = '$dni', nombres = '$nombre', apellidos = '$apellido', id_aula = '$aula', calificacion_lenguaje = '$lenguaje', calificacion_matematicas = '$mate', edad = '$edad'  where id_alumno = '$id_alumno' ";
         $obj = new Conexion();
         $con = $obj->conecta();
         $res = mysqli_query($con, $sql);

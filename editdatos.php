@@ -50,6 +50,14 @@
                 ?>
                 <br>
                 <br>
+                <label for="cali-mate"class="labelform">Calificación Matematica</label>
+                <input type="number" id="matematica" name="matematica" value="<?=$d[5]?>" required>
+                <br>
+                <label for="cali-leng"class="labelform">Calificación Lenguaje</label>
+                <input type="number" id="lenguaje" name="lenguaje" value="<?=$d[6]?>" required>
+                <br>
+                <label for="edad" class="labelform">Edad</label>
+                <input type="number" id="edad"name="edad" value="<?=$d[7    ]?>" required>
                 <center>
                     <div class="boton-cerrar">
                         <button class="btn btn-primary" id="botoneditar" name="botoneditar">Guardar</button>

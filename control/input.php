@@ -4,7 +4,7 @@ include('../modelo/Negocio.php');
 //Boton guardar
 if (isset($_POST["boton-guardar"])) {
     $objeto = new Negocio();
-    $alumno = $objeto->addAlu($_POST["dni"], $_POST["nombres"], $_POST["apellidos"], $_POST["id_aula"]);
+    $alumno = $objeto->addAlu($_POST["dni"], $_POST["nombres"], $_POST["apellidos"], $_POST["id_aula"], $_POST["matematica"], $_POST["lenguaje"], $_POST["edad"]);
     if (!$alumno) {
     } else {
         header("location: ../dashboard.php");
@@ -33,10 +33,15 @@ if (isset($_POST["botoneditar"])){
     $nombre = $_POST["nombres"];
     $apellido = $_POST["apellidos"];
     $aula = $_POST["id_aula"];
-    $edit = $objeto->editarAlu($id_alumno, $dni, $nombre, $apellido, $aula);
+    $lenguaje = $_POST["lenguaje"];
+    $mate = $_POST["matematica"];
+    $edad = $_POST["edad"];
+
+    $edit = $objeto->editarAlu($id_alumno, $dni, $nombre, $apellido, $aula, $lenguaje, $mate, $edad);
     if(!$edit){
 
     } else{
         header("location: ../dashboard.php");
     }
 }
+
